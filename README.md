@@ -1,3 +1,3 @@
 # E-commerce Product Page
 
-Use redux for manage the cart state
+Use redux for managing the cart state
