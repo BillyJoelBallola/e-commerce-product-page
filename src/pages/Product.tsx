@@ -1,0 +1,23 @@
+import { useParams } from "react-router";
+import ProductImagePreview from "../components/ProductImagePreview";
+import ProductInfo from "../components/ProductInfo";
+import { dummyData } from "../utils/data";
+
+function ProductPage() {
+  const { id } = useParams();
+
+  const productData = dummyData.find((i) => i.id === id);
+
+  if (!productData) return;
+
+  return (
+    <div className="h-[85dvh] grid place-items-center pt-16">
+      <div className="grid md:grid-cols-2 w-full">
+        <ProductImagePreview images={productData.images} />
+        <ProductInfo info={productData} />
+      </div>
+    </div>
+  );
+}
+
+export default ProductPage;

@@ -23,7 +23,7 @@ function ProductImagePreview({ images }: { images: string[] }) {
             onClick={() => changeActiveImg(idx)}
             className={`min-h-24 md:size-full overflow-hidden cursor-pointer bg-neutral-100 border-2 relative ${
               activeImg === idx
-                ? "border-neutral-900 after:absolute after:content-[''] after:inset-0 after:bg-neutral-900/10 after:z-10"
+                ? "border-neutral-900 after:content-[''] after:z-10 after:absolute after:inset-0 after:bg-neutral-900/50"
                 : "border-transparent"
             }`}
           >

@@ -29,15 +29,21 @@ function ProductInfo({ info }: { info: Product }) {
       <div className="space-y-2">
         <div className="flex items-center gap-3">
           <span className="text-2xl font-semibold">
-            {formatPrice(computedDiscount(info.price, info.discount))}
+            {info.discount !== 0
+              ? formatPrice(computedDiscount(info.price, info.discount))
+              : formatPrice(info.price)}
           </span>
-          <div className="text-sm font-semibold px-1.5 text-white bg-neutral-900">
-            {decimalToPercentage(info.discount)}
-          </div>
+          {info.discount !== 0 && (
+            <div className="text-sm font-semibold px-1.5 text-white bg-neutral-900">
+              {decimalToPercentage(info.discount)}
+            </div>
+          )}
         </div>
-        <span className="font-semibold text-neutral-700 line-through">
-          {formatPrice(info.price)}
-        </span>
+        {info.discount !== 0 && (
+          <span className="font-semibold text-neutral-700 line-through">
+            {formatPrice(info.price)}
+          </span>
+        )}
       </div>
 
       <div className="mt-8">

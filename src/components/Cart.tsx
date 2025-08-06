@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { BsCart2, BsCartCheck } from "react-icons/bs";
 import { useSelector } from "react-redux";
@@ -6,11 +6,31 @@ import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
 import Button from "./Button";
 import type { Product } from "../utils/types";
+import { formatPrice } from "../utils/format";
+import { computedDiscount } from "../utils/computedDiscount";
 
 function Cart() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const items = useSelector(
     (state: { cart: { items: Product[] } }) => state.cart.items
+  );
+
+  useEffect(() => {
+    if (isCartOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isCartOpen]);
+
+  const totalOrigPrice = items.reduce((acc, item) => acc + item.price, 0);
+  const overallTotalWithDiscount = items.reduce(
+    (acc, item) => acc + computedDiscount(item.price, item.discount),
+    0
   );
 
   return (
@@ -29,7 +49,7 @@ function Cart() {
 
       {isCartOpen && (
         <div
-          className="absolute inset-0 bg-neutral-900/50 z-20"
+          className="absolute inset-0 h-dvh bg-neutral-900/50 z-50"
           onClick={() => setIsCartOpen(false)}
         >
           <div
@@ -54,9 +74,25 @@ function Cart() {
             </div>
             <div>
               {items.length !== 0 && (
-                <div className="border-t flex items-center justify-between py-4">
-                  <span>Item/s:</span>
-                  <span>{items.length}</span>
+                <div className="border-t py-4">
+                  <div className="flex items-center justify-between">
+                    <span>Item/s:</span>
+                    <span>{items.length}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span>Original Price Total:</span>
+                    <span>{formatPrice(totalOrigPrice)}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span>Total Discount:</span>
+                    <span>
+                      - {formatPrice(totalOrigPrice - overallTotalWithDiscount)}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between font-semibold">
+                    <span>Overall Total:</span>
+                    <span>{formatPrice(overallTotalWithDiscount)}</span>
+                  </div>
                 </div>
               )}
               <Button>

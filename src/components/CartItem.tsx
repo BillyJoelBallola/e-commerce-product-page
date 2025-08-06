@@ -25,7 +25,7 @@ function CartItem({ item }: { item: Product }) {
   };
 
   return (
-    <div className="rounded-lg flex gap-2">
+    <div className="rounded-lg h-36 grid grid-cols-[35px_150px_1fr] gap-2">
       <div className="grid place-items-center px-2">
         <button
           onClick={() => dispatch(removeFromCart(item))}
@@ -34,7 +34,7 @@ function CartItem({ item }: { item: Product }) {
           <IoClose className="size-5" />
         </button>
       </div>
-      <div className="h-40 aspect-square overflow-hidden bg-neutral-200">
+      <div className="overflow-hidden bg-neutral-200">
         <img
           className="size-full object-cover"
           src={item.images[0]}
