@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { BsCart2, BsCartCheck } from "react-icons/bs";
 import { useSelector } from "react-redux";
