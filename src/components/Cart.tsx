@@ -27,9 +27,13 @@ function Cart() {
     };
   }, [isCartOpen]);
 
-  const totalOrigPrice = items.reduce((acc, item) => acc + item.price, 0);
+  const totalOrigPrice = items.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
   const overallTotalWithDiscount = items.reduce(
-    (acc, item) => acc + computedDiscount(item.price, item.discount),
+    (acc, item) =>
+      acc + computedDiscount(item.price * item.quantity, item.discount),
     0
   );
 
@@ -49,14 +53,14 @@ function Cart() {
 
       {isCartOpen && (
         <div
-          className="absolute inset-0 h-dvh bg-neutral-900/50 z-50"
+          className="fixed z-[999] inset-0 h-dvh bg-neutral-900/50 grid place-items-end"
           onClick={() => setIsCartOpen(false)}
         >
           <div
-            className="absolute right-0 min-h-dvh w-full md:w-lg bg-white shadow-xl p-4 flex flex-col justify-between gap-4"
+            className="min-h-dvh w-full md:w-lg bg-white shadow-xl p-4 flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between pb-4">
               <h2 className="text-2xl font-semibold">Cart</h2>
               <button
                 onClick={() => setIsCartOpen(false)}
@@ -65,7 +69,7 @@ function Cart() {
                 <IoClose className="size-6" />
               </button>
             </div>
-            <div className="flex flex-col gap-4 grow overflow-auto pb-10">
+            <div className="flex flex-col gap-4 h-[50dvh] grow overflow-y-auto pb-10">
               {items.length !== 0 ? (
                 items.map((item) => <CartItem key={item.id} item={item} />)
               ) : (

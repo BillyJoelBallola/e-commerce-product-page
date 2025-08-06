@@ -21,12 +21,15 @@ function ProductImagePreview({ images }: { images: string[] }) {
           <button
             key={idx}
             onClick={() => changeActiveImg(idx)}
-            className={`min-h-24 md:size-full overflow-hidden cursor-pointer bg-neutral-100 border-2 relative ${
+            className={`min-h-24 md:size-full overflow-hidden cursor-pointer bg-neutral-100 border-2 ${
               activeImg === idx
-                ? "border-neutral-900 after:content-[''] after:z-10 after:absolute after:inset-0 after:bg-neutral-900/50"
+                ? "border-neutral-900 relative -z-10"
                 : "border-transparent"
             }`}
           >
+            {activeImg === idx && (
+              <div className="absolute inset-0 bg-neutral-900/50 z-10" />
+            )}
             <img
               className="size-full aspect-square object-cover"
               src={item}

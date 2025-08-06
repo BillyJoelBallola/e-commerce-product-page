@@ -11,7 +11,7 @@ function ProductPage() {
   if (!productData) return;
 
   return (
-    <div className="h-[85dvh] grid place-items-center pt-16">
+    <div className="h-[85dvh] grid place-items-center pt-14">
       <div className="grid md:grid-cols-2 w-full">
         <ProductImagePreview images={productData.images} />
         <ProductInfo info={productData} />

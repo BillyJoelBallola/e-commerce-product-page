@@ -44,7 +44,7 @@ function Carousel({
       </div>
       <div
         ref={scrollRef}
-        className="flex items-center gap-4 overflow-y-auto scroll-smooth scrollbar-hide"
+        className="flex items-center gap-4 overflow-x-auto scroll-smooth scrollbar-hide"
       >
         {children}
       </div>
