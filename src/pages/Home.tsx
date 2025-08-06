@@ -4,7 +4,7 @@ import { dummyData } from "../utils/data";
 
 function HomePage() {
   return (
-    <div className="space-y-8 md:space-y-12 py-16">
+    <div className="space-y-8 md:space-y-12 py-18 md:py-16">
       <header className="h-[250px] overflow-hidden md:h-full border-b">
         <img
           className="min-h-[450px] object-cover object-right"
