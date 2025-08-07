@@ -20,7 +20,7 @@ function HomePage() {
 
   return (
     <div className="space-y-8 md:space-y-12 py-14">
-      <header className="h-[250px] overflow-hidden md:h-full border-b">
+      <header className="h-[250px] overflow-hidden md:h-full">
         <img
           className="min-h-[450px] object-cover object-right"
           src="/header-img.png"

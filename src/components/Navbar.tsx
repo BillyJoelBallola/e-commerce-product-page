@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <nav className="fixed w-full top-0 left-0 right-0">
-      <div className="w-[92%] md:w-[85%] lg:w-[75%] max-w-[1024px] mx-auto bg-white pt-2 md:py-2 border-b border-neutral-900">
+      <div className="w-[92%] md:w-[85%] lg:w-[75%] max-w-[1024px] mx-auto bg-white pt-2 md:py-2">
         <div className="flex items-center justify-between">
           <MobileNav links={links} />
           <a href="/" className="size-12 grid place-items-center">
