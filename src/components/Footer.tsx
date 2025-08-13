@@ -54,7 +54,7 @@ function Footer() {
       </div>
       <div className="border-t border-neutral-300 text-center py-2">
         <span className="text-sm text-neutral-500">
-          © 2025 SneakerDrop, Inc. All rights reserved
+          © {new Date().getFullYear()} SneakerDrop, Inc. All rights reserved
         </span>
       </div>
     </footer>
