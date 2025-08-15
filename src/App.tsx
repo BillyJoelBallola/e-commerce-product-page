@@ -9,10 +9,12 @@ function App() {
     <main className="font-kanit w-[92%] md:w-[85%] lg:w-[75%] max-w-[1024px] mx-auto">
       <Navbar />
       <main className="min-h-dvh">
-        <Routes>
+        <ProductPage />
+
+        {/* <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<ProductPage />} />
-        </Routes>
+        </Routes> */}
       </main>
       <Footer />
     </main>

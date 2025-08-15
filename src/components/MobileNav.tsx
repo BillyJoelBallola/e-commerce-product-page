@@ -30,7 +30,9 @@ function MobileNav({ links }: { links: { path: string; label: string }[] }) {
           <ul className="flex flex-col items-center justify-center h-full gap-8">
             {links.map((link) => (
               <li key={link.label} className="text-4xl hover:underline">
-                <Link to={link.path}>{link.label}</Link>
+                <Link to={link.path} onClick={() => setIsNavOpen(false)}>
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>

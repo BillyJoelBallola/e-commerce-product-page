@@ -4,9 +4,9 @@ import ProductInfo from "../components/ProductInfo";
 import { dummyData } from "../utils/data";
 
 function ProductPage() {
-  const { id } = useParams();
+  // const { id } = useParams();
 
-  const productData = dummyData.find((i) => i.id === id);
+  const productData = dummyData.find((i) => i.id === "fhHxgkd12");
 
   if (!productData) return;
 
