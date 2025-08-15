@@ -1,8 +1,8 @@
-import { Route, Routes } from "react-router";
+// import { Route, Routes } from "react-router";
 import Navbar from "./components/Navbar";
 import ProductPage from "./pages/Product";
 import Footer from "./components/Footer";
-import HomePage from "./pages/Home";
+// import HomePage from "./pages/Home";
 
 function App() {
   return (
