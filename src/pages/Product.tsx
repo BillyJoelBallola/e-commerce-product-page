@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 import ProductImagePreview from "../components/ProductImagePreview";
 import ProductInfo from "../components/ProductInfo";
 import { dummyData } from "../utils/data";
